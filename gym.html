@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IronPeak Fitness — Forge Your Strongest Self</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#080808;
+  --dark:#111111;
+  --card:#181818;
+  --red:#E63312;
+  --red-dim:#B32A0F;
+  --orange:#FF6B35;
+  --white:#FFFFFF;
+  --grey:#AAAAAA;
+  --grey-dim:#555555;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 5vw;background:rgba(8,8,8,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(230,51,18,0.15)}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:900;letter-spacing:0.08em;text-transform:uppercase;color:var(--white)}
+.nav-logo span{color:var(--red)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--grey);text-decoration:none;font-size:0.8rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--red)}
+.nav-btn{background:var(--red);color:var(--white);border:none;padding:0.6rem 1.5rem;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background 0.2s}
+.nav-btn:hover{background:var(--red-dim)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 5vw 5rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(230,51,18,0.08) 0%,transparent 50%),repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(255,255,255,0.01) 80px,rgba(255,255,255,0.01) 81px),repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(255,255,255,0.01) 80px,rgba(255,255,255,0.01) 81px)}
+.hero-slash{position:absolute;right:-5vw;top:0;bottom:0;width:45%;background:linear-gradient(160deg,var(--dark) 0%,var(--card) 100%);clip-path:polygon(15% 0,100% 0,100% 100%,0% 100%)}
+.hero-slash-line{position:absolute;right:40vw;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,transparent,var(--red),transparent)}
+.hero-content{position:relative;z-index:1;max-width:620px}
+.hero-eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.8rem}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:2px;background:var(--red)}
+.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3.5rem,8vw,7rem);font-weight:900;line-height:0.95;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:1.5rem}
+.hero-title .line2{color:var(--red);-webkit-text-stroke:0px;display:block}
+.hero-title .line3{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.3);display:block}
+.hero-sub{font-size:1rem;font-weight:300;color:var(--grey);line-height:1.75;max-width:44ch;margin-bottom:2.5rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-red{background:var(--red);color:var(--white);padding:1rem 2.5rem;font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block}
+.btn-red:hover{background:var(--red-dim);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--white);padding:1rem 2.5rem;font-size:0.85rem;font-weight:600;letter-spacing:0.08em;border:1px solid rgba(255,255,255,0.25);cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block}
+.btn-outline-white:hover{border-color:var(--white)}
+.hero-stats{display:flex;gap:3rem;margin-top:4rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.08)}
+.stat-val{font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:900;color:var(--white);line-height:1}
+.stat-val span{color:var(--red)}
+.stat-lbl{font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--grey-dim);margin-top:0.2rem}
+
+/* FEATURES */
+.features{padding:6rem 5vw;background:var(--dark)}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,0.06);margin-top:4rem}
+.feature-card{background:var(--dark);padding:2.5rem 2rem;transition:background 0.3s}
+.feature-card:hover{background:var(--card)}
+.feature-icon{font-size:2rem;margin-bottom:1.2rem}
+.feature-title{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--white);margin-bottom:0.6rem}
+.feature-desc{font-size:0.85rem;color:var(--grey);line-height:1.7}
+
+/* PROGRAMS */
+.programs{padding:6rem 5vw;background:var(--black)}
+.programs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:4rem}
+.program-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);padding:2rem;position:relative;overflow:hidden;transition:border-color 0.3s,transform 0.3s}
+.program-card:hover{border-color:var(--red);transform:translateY(-4px)}
+.program-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transition:transform 0.3s;transform-origin:left}
+.program-card:hover::before{transform:scaleX(1)}
+.program-tag{font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:0.8rem}
+.program-name{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;color:var(--white);margin-bottom:0.5rem}
+.program-desc{font-size:0.82rem;color:var(--grey);line-height:1.65;margin-bottom:1.5rem}
+.program-price{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:900;color:var(--white)}
+.program-price span{font-size:0.85rem;font-weight:400;color:var(--grey);font-family:'Inter',sans-serif}
+
+/* CTA BAND */
+.cta-band{padding:5rem 5vw;background:var(--red);text-align:center}
+.cta-band h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;text-transform:uppercase;color:var(--white);margin-bottom:1rem}
+.cta-band p{font-size:1rem;color:rgba(255,255,255,0.8);margin-bottom:2rem}
+.btn-white{background:var(--white);color:var(--red);padding:1rem 2.5rem;font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block}
+.btn-white:hover{background:#eee}
+
+/* FOOTER */
+footer{background:var(--dark);padding:2rem 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-logo{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:900;letter-spacing:0.08em;text-transform:uppercase;color:var(--white)}
+.footer-logo span{color:var(--red)}
+.footer-copy{font-size:0.72rem;color:var(--grey-dim)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* SECTION COMMON */
+.s-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);margin-bottom:0.8rem}
+.s-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;letter-spacing:0.03em;color:var(--white);line-height:1.1}
+
+@media(max-width:768px){.nav-links{display:none}.hero-slash{display:none}.hero-stats{flex-wrap:wrap;gap:2rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Iron<span>Peak</span></div>
+  <ul class="nav-links">
+    <li><a href="#features">Facility</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#join">Join</a></li>
+  </ul>
+  <button class="nav-btn">Join Now</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-slash"></div>
+  <div class="hero-slash-line"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Premium Fitness Facility</p>
+    <h1 class="hero-title">
+      Forge<br>
+      <span class="line2">Your</span>
+      <span class="line3">Strongest</span>
+    </h1>
+    <p class="hero-sub">World-class equipment. Expert coaches. A community that pushes you beyond what you thought possible. This is where champions are made.</p>
+    <div class="hero-actions">
+      <a href="#join" class="btn-red">Start Today — Free Trial</a>
+      <a href="#programs" class="btn-outline-white">View Programs</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-val">500<span>+</span></div><div class="stat-lbl">Members</div></div>
+      <div><div class="stat-val">20<span>+</span></div><div class="stat-lbl">Expert Coaches</div></div>
+      <div><div class="stat-val">4.9<span>★</span></div><div class="stat-lbl">Google Rating</div></div>
+      <div><div class="stat-val">24<span>/7</span></div><div class="stat-lbl">Access</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="reveal">
+    <p class="s-eyebrow">World-Class Facility</p>
+    <h2 class="s-title">Everything You Need.<br>Nothing You Don't.</h2>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card reveal"><div class="feature-icon">🏋️</div><h3 class="feature-title">Premium Equipment</h3><p class="feature-desc">Over 150 machines and free weights from industry-leading brands. Always maintained, always available.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">🧠</div><h3 class="feature-title">Expert Coaching</h3><p class="feature-desc">Certified personal trainers who build plans around your goals — not a generic routine.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">🔥</div><h3 class="feature-title">Group Classes</h3><p class="feature-desc">30+ weekly classes: HIIT, Yoga, Spin, Boxing. Energy that keeps you coming back.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">⚡</div><h3 class="feature-title">Recovery Zone</h3><p class="feature-desc">Sauna, ice bath, and foam rolling area. Because recovery is part of the training.</p></div>
+  </div>
+</section>
+
+<section class="programs" id="programs">
+  <div class="reveal">
+    <p class="s-eyebrow">Membership Plans</p>
+    <h2 class="s-title">Choose Your<br>Path.</h2>
+  </div>
+  <div class="programs-grid">
+    <div class="program-card reveal">
+      <p class="program-tag">Starter</p>
+      <h3 class="program-name">Basic Access</h3>
+      <p class="program-desc">Full gym floor access, locker rooms, and group class schedule. Perfect for self-starters.</p>
+      <div class="program-price">$39<span>/month</span></div>
+    </div>
+    <div class="program-card reveal">
+      <p class="program-tag">Most Popular</p>
+      <h3 class="program-name">Pro Athlete</h3>
+      <p class="program-desc">Everything in Basic plus unlimited group classes, 2 PT sessions/month, and nutrition tracking.</p>
+      <div class="program-price">$79<span>/month</span></div>
+    </div>
+    <div class="program-card reveal">
+      <p class="program-tag">Elite</p>
+      <h3 class="program-name">Champion</h3>
+      <p class="program-desc">Unlimited everything. Daily PT access, private training suites, recovery zone, and priority booking.</p>
+      <div class="program-price">$149<span>/month</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="join">
+  <h2 class="reveal">Your First Week Is Free.</h2>
+  <p class="reveal">No contracts. No commitments. Just results.</p>
+  <a href="#" class="btn-white reveal">Claim Free Trial</a>
+</section>
+
+<footer>
+  <div class="footer-logo">Iron<span>Peak</span></div>
+  <p class="footer-copy">© 2025 IronPeak Fitness. All rights reserved.</p>
+  <p class="footer-copy" style="color:#555">Demo by ReFine Studio</p>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);obs.unobserve(e.target)}})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

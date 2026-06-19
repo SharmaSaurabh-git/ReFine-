@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>La Maison Dorée — Fine Dining Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0E0B07;
+  --dark:#1A1408;
+  --card:#221A0D;
+  --gold:#C9972A;
+  --gold-light:#E8B84B;
+  --cream:#F5EDD8;
+  --cream-dim:#A89070;
+  --white:#FDFAF4;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--ink);color:var(--cream);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 6vw;background:rgba(14,11,7,0.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,151,42,0.12)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;letter-spacing:0.05em;color:var(--white)}
+.nav-logo em{font-style:italic;color:var(--gold)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--cream-dim);text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-btn{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:0.55rem 1.4rem;font-size:0.72rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:all 0.25s}
+.nav-btn:hover{background:var(--gold);color:var(--ink)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 6vw 5rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(201,151,42,0.06) 0%,transparent 70%)}
+.hero-ornament-top{font-family:'Cormorant Garamond',serif;font-size:5rem;color:rgba(201,151,42,0.06);position:absolute;top:3rem;left:50%;transform:translateX(-50%);letter-spacing:0.5em;pointer-events:none}
+.divider{display:flex;align-items:center;gap:1rem;margin:1.2rem auto;width:fit-content}
+.divider-line{width:60px;height:1px;background:rgba(201,151,42,0.4)}
+.divider-gem{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+.hero-eyebrow{font-size:0.68rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,8vw,7.5rem);font-weight:300;line-height:1;color:var(--white);margin-bottom:0.3rem}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:300;font-style:italic;color:var(--cream-dim);margin-top:0.8rem;margin-bottom:2.5rem}
+.hero-actions{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-top:0.5rem}
+.btn-gold{background:var(--gold);color:var(--ink);padding:1rem 2.5rem;font-size:0.78rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline-gold{background:transparent;color:var(--gold);padding:1rem 2.5rem;font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;border:1px solid rgba(201,151,42,0.5);cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block}
+.btn-outline-gold:hover{border-color:var(--gold)}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-style:italic;color:var(--cream-dim);margin-top:3rem;opacity:0.7}
+
+/* STORY */
+.story{padding:7rem 6vw;background:var(--dark)}
+.story-layout{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.story-text .s-eyebrow{font-size:0.68rem;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.story-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:400;line-height:1.2;color:var(--white);margin-bottom:1.5rem}
+.story-text h2 em{font-style:italic;color:var(--gold)}
+.story-text p{font-size:0.95rem;font-weight:300;color:var(--cream-dim);line-height:1.9;margin-bottom:1.2rem}
+.story-visual{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.story-stat-card{background:var(--card);border:1px solid rgba(201,151,42,0.1);padding:2rem 1.5rem;text-align:center}
+.story-stat-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:600;color:var(--gold);line-height:1}
+.story-stat-lbl{font-size:0.65rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--cream-dim);margin-top:0.4rem}
+
+/* MENU */
+.menu-sec{padding:7rem 6vw;background:var(--ink)}
+.menu-header{text-align:center;margin-bottom:4rem}
+.menu-header h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:400;color:var(--white)}
+.menu-header h2 em{font-style:italic;color:var(--gold)}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.menu-category{background:var(--card);border:1px solid rgba(201,151,42,0.08);padding:2.5rem}
+.menu-cat-label{font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid rgba(201,151,42,0.15)}
+.menu-item{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.2rem;gap:1rem}
+.menu-item-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;color:var(--white)}
+.menu-item-desc{font-size:0.75rem;color:var(--cream-dim);margin-top:0.15rem;font-style:italic}
+.menu-item-price{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--gold);flex-shrink:0}
+
+/* RESERVE */
+.reserve{padding:7rem 6vw;background:var(--dark);text-align:center}
+.reserve h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:400;color:var(--white);margin-bottom:0.8rem}
+.reserve h2 em{font-style:italic;color:var(--gold)}
+.reserve p{font-size:0.95rem;font-weight:300;color:var(--cream-dim);margin-bottom:2.5rem}
+.reserve-form{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;max-width:600px;margin:0 auto}
+.reserve-input{background:var(--card);border:1px solid rgba(201,151,42,0.2);color:var(--cream);padding:0.9rem 1.2rem;font-size:0.85rem;font-family:'Jost',sans-serif;outline:none;flex:1;min-width:160px}
+.reserve-input::placeholder{color:var(--cream-dim)}
+.reserve-input:focus{border-color:var(--gold)}
+
+/* FOOTER */
+footer{background:var(--ink);border-top:1px solid rgba(201,151,42,0.1);padding:3rem 6vw;text-align:center}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;color:var(--white);margin-bottom:0.5rem}
+.footer-logo em{font-style:italic;color:var(--gold)}
+.footer-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;color:var(--cream-dim);margin-bottom:1.5rem}
+.footer-copy{font-size:0.7rem;color:rgba(168,144,112,0.4);letter-spacing:0.1em}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){.nav-links{display:none}.story-layout{grid-template-columns:1fr;gap:3rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">La <em>Maison</em> Dorée</div>
+  <ul class="nav-links">
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#reserve">Reserve</a></li>
+  </ul>
+  <button class="nav-btn">Reserve a Table</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ornament-top">❧</div>
+  <p class="hero-eyebrow reveal">Est. 2018 · Fine Dining · Private Events</p>
+  <div class="divider reveal"><div class="divider-line"></div><div class="divider-gem"></div><div class="divider-line"></div></div>
+  <h1 class="hero-title reveal">La <em>Maison</em><br>Dorée</h1>
+  <p class="hero-subtitle reveal">Where Every Dish Tells a Story</p>
+  <div class="divider reveal"><div class="divider-line"></div><div class="divider-gem"></div><div class="divider-line"></div></div>
+  <div class="hero-actions reveal">
+    <a href="#reserve" class="btn-gold">Reserve Your Table</a>
+    <a href="#menu" class="btn-outline-gold">Explore the Menu</a>
+  </div>
+  <p class="hero-tagline reveal">"Cuisine is the art of instantly transforming emotion into food."</p>
+</section>
+
+<section class="story" id="story">
+  <div class="story-layout">
+    <div class="story-text reveal">
+      <p class="s-eyebrow">Our Philosophy</p>
+      <h2>Crafted with <em>Passion</em>,<br>Served with Grace.</h2>
+      <p>At La Maison Dorée, we believe dining is not simply eating — it is an experience to be savoured, remembered, and returned to. Every dish on our menu is a testament to culinary artistry and the finest seasonal ingredients.</p>
+      <p>Our chefs bring decades of combined experience from the world's most celebrated kitchens, bringing that mastery to every plate we serve.</p>
+      <a href="#reserve" class="btn-gold" style="margin-top:1rem">Make a Reservation</a>
+    </div>
+    <div class="story-visual reveal">
+      <div class="story-stat-card"><div class="story-stat-num">7</div><div class="story-stat-lbl">Years of Excellence</div></div>
+      <div class="story-stat-card"><div class="story-stat-num">4.9<span style="font-size:1.5rem">★</span></div><div class="story-stat-lbl">Average Rating</div></div>
+      <div class="story-stat-card"><div class="story-stat-num">12</div><div class="story-stat-lbl">Expert Chefs</div></div>
+      <div class="story-stat-card"><div class="story-stat-num">50K<span style="font-size:1.5rem">+</span></div><div class="story-stat-lbl">Guests Served</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="menu-sec" id="menu">
+  <div class="menu-header reveal">
+    <p style="font-size:0.68rem;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem">Our Offerings</p>
+    <h2>A Menu of <em>Distinction</em></h2>
+    <div class="divider" style="margin:1.2rem auto"><div class="divider-line"></div><div class="divider-gem"></div><div class="divider-line"></div></div>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-category reveal">
+      <p class="menu-cat-label">Starters</p>
+      <div class="menu-item"><div><div class="menu-item-name">Truffle Arancini</div><div class="menu-item-desc">Black truffle, aged parmesan, saffron aioli</div></div><div class="menu-item-price">$18</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Burrata & Heirloom</div><div class="menu-item-desc">Fresh burrata, heritage tomatoes, basil oil</div></div><div class="menu-item-price">$22</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Seared Foie Gras</div><div class="menu-item-desc">Brioche, fig compote, aged balsamic</div></div><div class="menu-item-price">$34</div></div>
+    </div>
+    <div class="menu-category reveal">
+      <p class="menu-cat-label">Mains</p>
+      <div class="menu-item"><div><div class="menu-item-name">Wagyu Tenderloin</div><div class="menu-item-desc">A5 grade, bone marrow butter, pomme purée</div></div><div class="menu-item-price">$88</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Lobster Thermidor</div><div class="menu-item-desc">Whole native lobster, cognac cream, gruyère</div></div><div class="menu-item-price">$76</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Duck à l'Orange</div><div class="menu-item-desc">Slow-roasted duck, citrus jus, wilted greens</div></div><div class="menu-item-price">$54</div></div>
+    </div>
+    <div class="menu-category reveal">
+      <p class="menu-cat-label">Desserts</p>
+      <div class="menu-item"><div><div class="menu-item-name">Soufflé au Chocolat</div><div class="menu-item-desc">Valrhona dark chocolate, vanilla crème anglaise</div></div><div class="menu-item-price">$18</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Crème Brûlée</div><div class="menu-item-desc">Madagascar vanilla, caramelized crust</div></div><div class="menu-item-price">$14</div></div>
+      <div class="menu-item"><div><div class="menu-item-name">Tarte Tatin</div><div class="menu-item-desc">Caramelized apple, calvados, clotted cream</div></div><div class="menu-item-price">$16</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="reserve" id="reserve">
+  <h2 class="reveal"><em>Reserve</em> Your Evening</h2>
+  <p class="reveal">Join us for an unforgettable dining experience. We recommend booking at least 48 hours in advance.</p>
+  <div class="reserve-form reveal">
+    <input class="reserve-input" type="text" placeholder="Your Name"/>
+    <input class="reserve-input" type="date"/>
+    <input class="reserve-input" type="number" placeholder="Guests" min="1" max="20"/>
+    <a href="#" class="btn-gold" style="white-space:nowrap">Confirm Reservation</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">La <em>Maison</em> Dorée</div>
+  <p class="footer-tagline">"A table is a meeting place, a gathering ground, the source of sustenance and nourishment."</p>
+  <p class="footer-copy">© 2025 La Maison Dorée · Demo by ReFine Studio</p>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100);obs.unobserve(e.target)}})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
